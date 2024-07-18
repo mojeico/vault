@@ -82,8 +82,20 @@ vault kv delete secrets-mojeico-kv/secret-name
 
 - vault policy read firstpolicy
 
-- vault token create -policy='firstpolicy'
+- vault token create -policy='firstpolicy'       - login with policy 
 
 
 - WORK - vault kv put secret/data/training_data  key1=value1
 - NOT  - vault kv put secret/test_data  key1=value1
+
+
+
+
+vault write  auth/userpass/users/my_user/policies policies="firstpolicy"
+
+--------------- REST API -------------
+
+
+
+
+
