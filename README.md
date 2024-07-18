@@ -32,10 +32,11 @@ vault login
 
 
 
--------------- Create, delete, add, reader secret  ----------------
+-------------- Create, delete, add, reader secret  - key/value  ----------------
 
 
 vault secrets enable kv -path=secrets-mojeico-kv
+
 
 vault kv put secrets-mojeico-kv/secret-name key=value test2=val2 username=my_usernape password=my_password
 
@@ -60,6 +61,10 @@ vault kv delete secrets-mojeico-kv/secret-name
 - vault write auth/userpass/users/my_user password=123password
 - vault login -method=userpass username=my_user password=123password
 
+-------------- ENABLE APPROLE  ----------------
+
+- vault auth enable approle - enable login with user and pass
+- check docs 
 
 
 -------------- ALC POLICY ----------------
@@ -73,7 +78,7 @@ vault kv delete secrets-mojeico-kv/secret-name
 
 - vim policy.hcl
 
-  path "secret/data/training_data" {
+  path "secret/data/training_data" {            - (secrets/data/path)
       capabilities = ["create", "read"]
   }
 
