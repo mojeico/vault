@@ -3,16 +3,6 @@ Vault
 Main config -  /etc/vault.d/vault.hcl
 
 
-
-
-vault storage type - https://developer.hashicorp.com/vault/docs/configuration/storage
-
-
-
-check helth - vault operator diagnose -config=/etc/vault.d/vault.hcl
-
-
-
 VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_ADDR
 
@@ -20,10 +10,7 @@ export VAULT_ADDR
 
 vault status
 
-vault login
-
-
-
+vault operator init  - init vault and get keys 
 
 
 
