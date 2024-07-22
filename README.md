@@ -51,8 +51,20 @@ vault kv delete secrets-mojeico-kv/secret-name
 -------------- ENABLE APPROLE  ----------------
 
 - vault auth enable approle - enable login with user and pass
-- check docs 
 
+
+vault write auth/approle/role/gleb \
+secret_id_ttl=10m \
+token_num_uses=10 \
+token_ttl=20m \
+token_max_ttl=30m \
+secret_id_num_uses=40
+
+vault read auth/approle/role/gleb/role-id
+
+vault write -f auth/approle/role/gleb/secret-id
+
+vault write auth/approle/login role_id=3e98e0c7-c0e4-adec-2a97-9528d762360e secret_id=1d2bcfb5-5e13-3109-1c8d-750f3f3cc2fb
 
 -------------- ALC POLICY ----------------
 
